@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Take Quiz</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/skeleton.css">
+</head>
+<body>
+<div class="container">
+    <label>Take Quiz</label>
+    <form action="/answer/{{quiz_name}}/" method = "POST">
+    {% for a in quiz %}
+    <label for="exampleMessage">Question</label>
+    <textarea class="u-full-width" id="exampleMessage">
+      {{a['ques']}}
+    </textarea>
+    <div class="row">  
+
+    <div class="two columns">
+        <input type="radio" value ="1" name ="option-{{a['id']}}"> <span class="label-body"> {{a['opt1']}}</span>
+    </div>
+    <div class="two columns">
+       <input type="radio" value = "2" name ="option-{{a['id']}}" > <span class="label-body">{{a['opt2']}}</span>
+    </div>
+    <div class="two columns">
+      <input type="radio" value = "3"  name ="option-{{a['id']}}"> <span class="label-body">{{a['opt3']}}</span>
+    </div>
+    <div class="two columns">
+      <input type="radio" value = "4"  name ="option-{{a['id']}}"> <span class="label-body">{{a['opt4']}}</span>
+    </div>
+  </div>
+   
+  {% endfor %}
+  <!-- <input type="text" name = "correctanswer" placeholder ="correct answer"> -->
+  <div class="u-full-width">
+  <!-- <button class="button-primary">Previous</button> -->
+  <input class="button-primary" type="submit" value="Submit">
+  <!-- <button class="button-primary">Next</button> -->
+  </div>
+  </form>
+</div>
+</body>
+</html>

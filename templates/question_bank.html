@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Question Bank</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/normalize.css">
+    <link rel="stylesheet" href="/static/css/skeleton.css">
+</head>
+<body>
+<div class="container">
+  <label>Question Bank</label>  
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>Select</th>
+          <th>Description</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for item in quiz_bank %}
+        <tr>
+          <td>{{item['name']}}</td>
+          <td>{{item['category']}}</td>
+          <th><a href="/takequiz/{{item['f_name']}}" class="button-primary">Take Quiz</a></th>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  </body>
+ 
